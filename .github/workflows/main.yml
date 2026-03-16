@@ -19,7 +19,7 @@ jobs:
         distribution: 'temurin'
 
     - name: Build with Maven
-      run: cd nguyentrungkien/nguyentrungkien/pom.xml clean package -DskipTests
+      run: cd nguyentrungkien/CCPTPM && mvn clean package -DskipTests
 
     - name: Check files
       run: ls -R
@@ -32,6 +32,6 @@ jobs:
 
     - name: Build and Push Docker Image
       run: |
-        cd nguyentrungkien/nguyentrungkien
+        cd nguyentrungkien/CCPTPM
         docker build -t ntkienn/food-rescue:latest .
         docker push ntkienn/food-rescue:latest
