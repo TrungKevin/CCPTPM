@@ -19,7 +19,7 @@ jobs:
         distribution: 'temurin'
 
     - name: Build with Maven
-      run: cd nguyentrungkien/CCPTPM && mvn clean package -DskipTests
+      run: cd nguyentrungkien/CCPTPM/pom.xml clean package -DskipTests
 
     - name: Check files
       run: ls -R
