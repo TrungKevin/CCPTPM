@@ -19,7 +19,8 @@ jobs:
         distribution: 'temurin'
 
     - name: Build with Maven
-      run: cd CCPTPM/nguyentrungkien && mvn clean package -DskipTests
+      working-directory: ./nguyentrungkien
+      run: mvn clean package -DskipTests
 
     - name: Check files
       run: ls -R
@@ -31,7 +32,7 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
 
     - name: Build and Push Docker Image
+      working-directory: ./nguyentrungkien
       run: |
-        cd nguyentrungkien
         docker build -t ntkienn/food-rescue:latest .
         docker push ntkienn/food-rescue:latest
